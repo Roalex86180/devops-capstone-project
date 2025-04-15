@@ -149,7 +149,7 @@ class TestAccountService(TestCase):
         resp = self.client.get(BASE_URL)
         self.assertEqual(resp.status_code, status.HTTP_200_OK)
         data = resp.get_json()
-        self.assertEqual(len(data), 5)  
+        self.assertEqual(len(data), 5)
 
     def test_update_account(self):
         """It should Update an existing Account"""
@@ -164,8 +164,7 @@ class TestAccountService(TestCase):
         resp = self.client.put(f"{BASE_URL}/{new_account['id']}", json=new_account)
         self.assertEqual(resp.status_code, status.HTTP_200_OK)
         updated_account = resp.get_json()
-        self.assertEqual(updated_account["name"], "Something Known")  
-
+        self.assertEqual(updated_account["name"], "Something Known")
     def test_delete_account(self):
         """It should Delete an Account"""
         account = self._create_accounts(1)[0]
